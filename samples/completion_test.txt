@@ -1,0 +1,8 @@
+Generate a list of fruit including:
+
+apple
+banana
+cherry
+grapefruit
+kiwi
+lemon

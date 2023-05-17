@@ -1,0 +1,7 @@
+System: You are a technical support specialist.
+
+Assist the user.
+
+User: I need assistance with my device.
+
+Assistant: I'm here to help. Could you tell me more about the issue?
