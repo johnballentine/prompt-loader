@@ -31,7 +31,12 @@ Assistant: I'm here to help. Could you tell me more about the issue?
 ```python
 from prompt_loader import PromptLoader
 
-loader = PromptLoader(some_text_here_to_parse)
+with open("chat_transcript.txt", "r") as file:
+    text = file.read()
+
+# Create a PromptLoader instance with the text from the file
+loader = PromptLoader(text)
+
 print(loader.content) # Either a string or list depending on completion or chat
 print(loader.str_pretty) # Formats a chat or completion in a human-readable way
 print(loader) # Prints as a string in either case
