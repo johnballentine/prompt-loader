@@ -41,7 +41,7 @@ print(loader.content) # Either a string or list depending on completion or chat
 print(loader.str_pretty) # Formats a chat or completion in a human-readable way
 print(loader) # Prints as a string in either case
 ```
-Depending on the content of the text, it will parse it as a chat transcript or as a plain text string. You can access the parsed prompt through the .content property and a more readable string representation through the .str_pretty property.
+Depending on the content of the text, it will parse it as a chat transcript or as a plain text string.
 
 ## Features
 - Type conversion with strings, lists, etc.
