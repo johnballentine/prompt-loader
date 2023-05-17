@@ -14,4 +14,4 @@ with open('samples/completion_test.txt', 'r') as file:
 
 completion_prompt = PromptLoader(text)
 
-print(f"\n\nCompletion Prompt:\n\n{completion_prompt}")
+print(f"\n\nCompletion Prompt:\n\n{completion_prompt}\n\n")
