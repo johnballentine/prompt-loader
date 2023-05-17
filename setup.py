@@ -17,4 +17,5 @@ setuptools.setup(
     },
     license='MIT',
     packages=['prompt_loader'],
+    setup_requires=['wheel'],
 )
