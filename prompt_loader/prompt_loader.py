@@ -34,11 +34,13 @@ class PromptLoader:
     
     def __init__(self, text):
         self.text = text
+        # Check for chat handles to determine if the input is a chat prompt or completion prompt
         if any(keyword in text for keyword in ["User:", "System:", "Assistant:"]):
             self.prompt = self.load_chat()
         else:
             self.prompt = self.load_completion()
-
+    
+    # If chat handles are detected, load as a standard JSON compatible with OpenAI
     def load_chat(self):
         messages = []
         roles = ["system", "user", "assistant"]
@@ -69,7 +71,6 @@ class PromptLoader:
                 # If the line doesn't start with a role, treat it as a continuation of the current message
                 current_lines.append(stripped_line)
 
-        # Add the final message
         if current_role is not None:
             content = '\\n'.join(current_lines).strip()
             # Remove trailing newlines
@@ -82,7 +83,7 @@ class PromptLoader:
 
         return messages
 
-
+    # If no chat handles are found, load as a completion prompt (string with escape newlines)
     def load_completion(self):
         lines = self.text.split('\n')
         lines = [line.replace('\r', '') for line in lines]
@@ -96,13 +97,15 @@ class PromptLoader:
             formatted_prompt.append(f"{{'role': '{message['role']}', 'content': '{formatted_content}'}}")
         return '[' + ', '.join(formatted_prompt) + ']'
     
+    # Contains either a list of dictionaries for chat prompts, or a string for completion prompts
     @property
     def content(self):
         if isinstance(self.prompt, list):
             return self.prompt
         else:
             return repr(self)[1:-1]
-        
+    
+    # Printable format similar to the origin input format
     @property
     def str_pretty(self):
         if isinstance(self.prompt, str):
