@@ -1,6 +1,6 @@
 # PromptLoader
 
-A Python utility designed to streamline the process of managing and editing prompts for OpenAI's Completion and ChatCompletion classes.
+A Python utility designed to streamline the process of managing and editing prompts for OpenAI's Completion and ChatCompletion classes using plain text.
 
 In Python, extensive text strings, often seen in OpenAI prompts, require escaped newline characters (\\n). This often results in long lines of text in code editors, disrupting the reading flow and making editing cumbersome. This tool mitigates this issue by interpreting text inputs, identifying them as either a chat transcript or completion (used in text-davinci-003), and automatically formatting them accordingly. This functionality enables easier prompt creation by editing a .txt file before loading them into Python.
 
